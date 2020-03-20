@@ -1,0 +1,89 @@
+import lang.Integer
+import lang.Array
+import lang.Object
+import lang.OutOfBoundsError
+
+/**
+ * A simple list object which uses stores it's elements with an internal array.
+ *
+ * T - The type of object to store.
+ */
+class List<T:Object>
+    /**
+     * The initial size of the internal array.
+     */
+    const Integer InitialSize = 64
+
+    /**
+     * How much to multiply the array size by when increasing it's capacity.
+     */
+    const Integer CapacityMultiplier = 2
+
+    /**
+     * Adds a new element to this list.
+     *
+     * element - The element to add.
+     */
+    Add(T element)
+    
+    /**
+     * Removes an element from this list.
+     *
+     * element - The element to remove.
+     */
+    Remove(T element)
+    
+    /**
+     * Gets an element at the specified index in this list.
+     *
+     * index - The index of the element.
+     *
+     * element - The element.
+     */
+    readonly Get(Integer index) -> T element
+    
+    /**
+     * Gets the number of elements in this list.
+     *
+     * size - The size.
+     */
+    readonly Size() -> Integer size
+
+
+test InitiallyEmpty
+    list = new List<Integer>()
+    assert list.size() is 0
+    
+test AddElement
+    list = new List<Object>()
+    obj = mock Object()
+    
+    list.add(obj)
+    assert list.size() is 1
+    assert list.get(0) is obj
+    
+    list.remove(obj)
+    assert list.size() is 0
+
+test EmptyList_Get2_OutOfBoundsError
+    list = new List<Object>()
+    assert list.get(2) throws OutOfBoundsError
+    
+test List_GetNegative_OutOfBoundsError
+    list = new List<Object>()
+    obj = mock Object()
+    list.add(obj)
+
+    assert list.get(0) is obj
+    assert list.get(-1) throws OutOfBoundsError
+
+test RemoveObject_NotInList_DoNothing
+    list = new List<Object>()
+    obj1 = mock Object()
+    obj2 = mock Object()
+
+    list.add(obj1)
+    assert list.size() is 1
+    
+    list.remove(obj2)
+    assert list.size() is 1
