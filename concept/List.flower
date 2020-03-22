@@ -52,53 +52,53 @@ class List<T:Object>
 
 test InitiallyEmpty
     list = new List<Integer>()
-    assert list.size() is 0
+    assert list.Size() is 0
     
 test AddElement
     list = new List<Object>()
     obj = mock Object()
     
     list.add(obj)
-    assert list.size() is 1
-    assert list.get(0) is obj
+    assert list.Size() is 1
+    assert list.Get(0) is obj
     
-    list.remove(obj)
-    assert list.size() is 0
+    list.Remove(obj)
+    assert list.Size() is 0
 
 test EmptyList_Get2_OutOfBoundsError
     list = new List<Object>()
-    assert list.get(2) throws OutOfBoundsError
+    assert list.Get(2) throws OutOfBoundsError
     
 test List_GetNegative_OutOfBoundsError
     list = new List<Object>()
     obj = mock Object()
-    list.add(obj)
+    list.Add(obj)
 
-    assert list.get(0) is obj
-    assert list.get(-1) throws OutOfBoundsError
+    assert list.Get(0) is obj
+    assert list.Get(-1) throws OutOfBoundsError
 
 test RemoveObject_NotInList_DoNothing
     list = new List<Object>()
     obj1 = mock Object()
     obj2 = mock Object()
 
-    list.add(obj1)
-    assert list.size() is 1
+    list.Add(obj1)
+    assert list.Size() is 1
     
-    list.remove(obj2)
-    assert list.size() is 1
+    list.Remove(obj2)
+    assert list.Size() is 1
 
 
 usage antipattern AddThenRemove
     list = any List
     elem = any T
     
-    list.add(elem)
-    list.remove(elem)
+    list.Add(elem)
+    list.Remove(elem)
 
 usage antipattern RemoveThenAdd
     list = any List
     elem = any T
     
-    list.remove(elem)
-    list.add(elem)
+    list.Remove(elem)
+    list.Add(elem)
