@@ -40,14 +40,14 @@ class List<T:Object>
      *
      * element - The element.
      */
-    readonly Get(Integer index) -> T element
+    readonly Get(Integer index) returns T element
     
     /**
      * Gets the number of elements in this list.
      *
      * size - The size.
      */
-    readonly Size() -> Integer size
+    readonly Size() returns Integer size
 
 
 test InitiallyEmpty
@@ -87,3 +87,18 @@ test RemoveObject_NotInList_DoNothing
     
     list.remove(obj2)
     assert list.size() is 1
+
+
+usage antipattern AddThenRemove
+    list = any List
+    elem = any T
+    
+    list.add(elem)
+    list.remove(elem)
+
+usage antipattern RemoveThenAdd
+    list = any List
+    elem = any T
+    
+    list.remove(elem)
+    list.add(elem)
