@@ -1,0 +1,101 @@
+import native stdlib.Number
+
+/**
+ * A wrapper for the primative number type.
+ */
+class Number
+    /**
+     * Adds this number to another number and returns the result.
+     */
+    native readonly Add(Number other) returns Number result
+    
+    /**
+     * Subtracts another number from this number and returns the result.
+     */
+    native readonly Subtract(Number other) returns Number result
+    
+    /**
+     * Multiplies this number to another number and returns the result.
+     */
+    native readonly Multiply(Number other) returns Number result
+    
+    /**
+     * Divides another number from this number and returns the result.
+     */
+    native readonly Divide(Number other) returns Number result
+    
+    /**
+     * Brings this number to the power of another number and returns the result.
+     */
+    native readonly Power(Number other) returns Number result
+    
+    /**
+     * Divides another number from this number and returns the remainder.
+     */
+    native readonly Modulus(Number other) returns Number result
+    
+    /**
+     * Rounds this number down to the nearest whole number and returns the result.
+     */
+    native readonly Floor() returns Number result
+    
+    /**
+     * Rounds this number up to the nearest whole number and returns the result.
+     */
+    native readonly Ceil() returns Number result
+    
+    /**
+     * Rounds this number up or down to the nearest whole number and returns the result.
+     */
+    native readonly Round() returns Number result
+    
+    /**
+     * Gets the square root of this number and returns the result.
+     */
+    native readonly SquareRoot() returns Number result
+    
+    /**
+     * Gets the natural log of this number and returns the result.
+     */
+    native readonly Log() returns Number result
+    
+
+usage antipattern AddToSelf
+    a = any Number()
+    a.add(a)
+
+usage antipattern DivideFromSelf
+    a = any Number()
+    a.divide(a)
+
+usage antipattern MultiplyToSelf
+    a = any Number()
+    a.multiply(a)
+
+usage antipattern SubtractFromSelf
+    a = any Number()
+    a.subtract(a)
+
+usage antipattern AddThenSubtract
+    a = any Number()
+    b = any Number()
+    a.add(b)
+    a.subtract(b)
+
+usage antipattern SubtractThenAdd
+    a = any Number()
+    b = any Number()
+    a.subtract(b)
+    a.add(b)
+
+usage antipattern MultiplyThenDivide
+    a = any Number()
+    b = any Number()
+    a.multiply(b)
+    a.divide(b)
+
+usage antipattern DivideThenMultiply
+    a = any Number()
+    b = any Number()
+    a.divide(b)
+    a.multiply(b)
