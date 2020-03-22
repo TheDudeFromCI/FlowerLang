@@ -61,41 +61,76 @@ class Number
     
 
 usage antipattern AddToSelf
-    a = any Number()
-    a.add(a)
+    a = any Number
+    a.Add(a)
 
 usage antipattern DivideFromSelf
-    a = any Number()
-    a.divide(a)
+    a = any Number
+    a.Divide(a)
 
 usage antipattern MultiplyToSelf
-    a = any Number()
-    a.multiply(a)
+    a = any Number
+    a.Multiply(a)
 
 usage antipattern SubtractFromSelf
-    a = any Number()
-    a.subtract(a)
+    a = any Number
+    a.Subtract(a)
 
 usage antipattern AddThenSubtract
-    a = any Number()
-    b = any Number()
-    a.add(b)
-    a.subtract(b)
+    a = any Number
+    b = any Number
+    a.Add(b)
+    a.Subtract(b)
 
 usage antipattern SubtractThenAdd
-    a = any Number()
-    b = any Number()
-    a.subtract(b)
-    a.add(b)
+    a = any Number
+    b = any Number
+    a.Subtract(b)
+    a.Add(b)
 
 usage antipattern MultiplyThenDivide
-    a = any Number()
-    b = any Number()
-    a.multiply(b)
-    a.divide(b)
+    a = any Number
+    b = any Number
+    a.Multiply(b)
+    a.Divide(b)
 
 usage antipattern DivideThenMultiply
-    a = any Number()
-    b = any Number()
-    a.divide(b)
-    a.multiply(b)
+    a = any Number
+    b = any Number
+    a.Divide(b)
+    a.Multiply(b)
+
+usage antipattern AddTwice
+    a = any Number
+    b = any Number
+    
+    a.Add(b)
+    a.Add(b)
+
+usage antipattern MultiplyTwice
+    a = any Number
+    b = any Number
+    
+    a.Multiply(b)
+    a.Multiply(b)
+    
+usage antipattern SubtractTwice
+    a = any Number
+    b = any Number
+    
+    a.Subtract(b)
+    a.Subtract(b)
+
+usage antipattern DivideTwice
+    a = any Number
+    b = any Number
+    
+    a.Divide(b)
+    a.Divide(b)
+
+usage antipattern ModulusTwice
+    a = any Number
+    b = any Number
+    
+    a.Modulus(b)
+    a.Modulus(b)
